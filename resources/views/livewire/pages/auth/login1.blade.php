@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new #[Layout('layouts.guest')] class extends Component
+new #[Layout('layouts.gu')] class extends Component
 {
     public LoginForm $form;
 
@@ -23,9 +23,55 @@ new #[Layout('layouts.guest')] class extends Component
         $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
     }
 }; ?>
+   
+        <div class="login-form">
+            <div class="form-box">
+                <!-- Login Form -->
+                <div id="loginForm" class="form-toggle active">
+                    <div class="login-title">Login</div>
+                    <form wire:submit="login">
+                        <div class="mb-3">
+                            <label>Email address</label>
+                            <input type="email" class="form-control" name="email" placeholder="Enter email" required />
+                        </div>
+                        <div class="mb-3">
+                            <label>Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Password" required />
+                        </div>
+                        <div class="mb-3 text-end">
+                            @if (Route::has('password.request'))
+                                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}" wire:navigate>
+                                    {{ __('Forgot your password?') }}
+                                </a>
+                            @endif
+                        </div>
+                        
+                        <x-primary-button class="ms-3">
+                            {{ __('Log in') }}
+                        </x-primary-button>
+                    </form>
+                </div>
 
+                <!-- Forgot Password Form -->
+                {{-- <div id="forgotForm" class="form-toggle">
+                    <div class="login-title">Reset Password</div>
+                    <form id="resetForm">
+                        <div class="mb-3">
+                            <label>Enter your email</label>
+                            <input type="email" class="form-control" name="email" placeholder="Email address" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Reset Link</button>
+                        <div class="text-center mt-3">
+                            <a href="#" id="backToLogin">Back to Login</a>
+                        </div>
+                    </form>
+                </div> --}}
+            </div>
+        </div>
+ 
 
-
+      
+{{--         
 <div>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -70,4 +116,4 @@ new #[Layout('layouts.guest')] class extends Component
             </x-primary-button>
         </div>
     </form>
-</div>
+</div> --}}

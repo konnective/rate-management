@@ -8,7 +8,7 @@ use Illuminate\Validation\Rules;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new #[Layout('layouts.guest')] class extends Component
+new #[Layout('layouts.gu')] class extends Component
 {
     public string $name = '';
     public string $email = '';
@@ -36,6 +36,58 @@ new #[Layout('layouts.guest')] class extends Component
     }
 }; ?>
 
+
+       <div class="login-form">
+            <div class="form-box">
+                <!-- Login Form -->
+                <div id="loginForm" class="form-toggle active">
+                    <div class="login-title">Register</div>
+                    <form wire:submit="register">
+                        <div class="mb-3">
+                            <label>{{__('Name')}}</label>
+                            <input type="text" class="form-control" name="name" placeholder="Enter name" required />
+                        </div>
+                        <div class="mb-3">
+                            <label>{{__('Email')}}</label>
+                            <input type="email" class="form-control" name="email" placeholder="Enter email" required />
+                        </div>
+                        <div class="mb-3">
+                            <label>{{__('Password')}}</label>
+                            <input type="password" class="form-control" name="password" placeholder="Password" required />
+                        </div>
+                        <div class="mb-3">
+                            <label>{{__('Confirm Password')}}</label>
+                            <input type="password" class="form-control" name="password_confirmation"  placeholder="Password" required />
+                        </div>
+                        <div class="mb-3 text-end">
+                            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}" wire:navigate>
+                                {{ __('Already registered?') }}
+                            </a>
+                        </div>
+                        
+                        <x-primary-button class="ms-3">
+                            {{ __('Register') }}
+                        </x-primary-button>
+                    </form>
+                </div>
+
+                <!-- Forgot Password Form -->
+                {{-- <div id="forgotForm" class="form-toggle">
+                    <div class="login-title">Reset Password</div>
+                    <form id="resetForm">
+                        <div class="mb-3">
+                            <label>Enter your email</label>
+                            <input type="email" class="form-control" name="email" placeholder="Email address" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Send Reset Link</button>
+                        <div class="text-center mt-3">
+                            <a href="#" id="backToLogin">Back to Login</a>
+                        </div>
+                    </form>
+                </div> --}}
+            </div>
+        </div>
+{{-- 
 <div>
     <form wire:submit="register">
         <!-- Name -->
@@ -85,4 +137,4 @@ new #[Layout('layouts.guest')] class extends Component
             </x-primary-button>
         </div>
     </form>
-</div>
+</div> --}}

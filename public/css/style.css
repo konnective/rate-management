@@ -1,0 +1,369 @@
+:root {
+  --primary: #082255;
+  --secondary: #153f92;
+  --dark: #434449;
+  --light: #d6d7da;
+}
+@font-face {
+  font-family: Manrope-medium;
+  src: url(../font/Manrope-Medium.ttf);
+}
+@font-face {
+  font-family: Manrope-regular;
+  src: url(../font/Manrope-Regular.ttf);
+}
+
+/* Global css start */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--dark);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Manrope-medium;
+  font-weight: 500;
+  line-height: 1.2;
+}
+h1 {
+  font-size: 56px;
+}
+h2 {
+  font-size: 48px;
+}
+h3 {
+  font-size: 40px;
+}
+h4 {
+  font-size: 25px;
+}
+h5 {
+  font-size: 22px;
+}
+h6 {
+  font-size: 20px;
+}
+p {
+  font-family: Manrope-regular;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 0;
+}
+a {
+  text-decoration: none !important;
+}
+
+.btn {
+  border-radius: 2px;
+  padding: 14px 20px !important;
+  font-size: 16px;
+}
+
+.btn-outline {
+  border: 1px solid #d6d7da;
+  color: #434449;
+}
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  font-size: 16px;
+  font-family: manrope-regular;
+  border-radius: 2px;
+  border-color: #d6d7da;
+}
+.btn-primary:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(21, 63, 146, 1) 0%,
+    rgba(92, 132, 245, 1) 100%
+  );
+  color: #fff;
+  border-radius: 2px;
+  border-color: #d6d7da;
+  font-family: manrope-medium;
+  font-size: 16px;
+}
+.custom-shadow {
+  box-shadow: 0px 15px 33px 0px rgba(189, 189, 189, 0.1),
+    0px 60px 60px 0px rgba(189, 189, 189, 0.09),
+    0px 134px 80px 0px rgba(189, 189, 189, 0.05),
+    0px 238px 95px 0px rgba(189, 189, 189, 0.01),
+    0px 372px 104px 0px rgba(189, 189, 189, 0);
+}
+.text-primary {
+  color: var(--primary) !important;
+}
+/* global css end */
+/*login css start */
+.login-container {
+  display: flex;
+  height: 100vh;
+}
+
+.login-form {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.login-bg {
+  flex: 1;
+  background: linear-gradient(135deg, #153f92, #0c2146);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  border-radius: 50% 0 0 50%;
+  box-shadow: 0px 3px 99px 22px rgba(12, 33, 70, 0.534);
+}
+
+.form-box {
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-toggle {
+  display: none;
+}
+
+.form-toggle.active {
+  display: block;
+}
+
+.form-toggle:not(.active) {
+  display: none;
+}
+
+.login-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.bg-text {
+  font-size: 3rem;
+  font-weight: bolder;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-bg {
+    display: none;
+  }
+}
+/*login css end */
+/* navbar css start */
+.navbar-custom {
+  background: #fff;
+  transition: all 0.3s ease;
+}
+
+.active-link {
+  border-bottom: 3px solid var(--primary);
+}
+
+.filter-bar {
+  background: #fff;
+  border-top: 1px solid rgba(67, 68, 73, 0.22);
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+}
+
+.nav-icon-btn {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+}
+
+.logo-text {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #004a9f;
+}
+
+.navbar-middle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.filter-bar .btn {
+  margin-right: 18px;
+  white-space: nowrap;
+}
+
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+}
+
+.sticky-filter {
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  z-index: 1029;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.placeholder {
+  height: 56px;
+}
+
+.placeholder-filter {
+  height: 50px;
+}
+/* navbar css end */
+/* More Insight css start */
+.nav-tabs {
+  border-bottom: none !important;
+}
+.nav-tabs .nav-link {
+  color: var(--dark);
+}
+.nav-tabs .nav-link.active {
+  color: var(--primary) !important;
+  border: none !important;
+  border-bottom: 2px solid var(--primary) !important;
+}
+/* chart css start */
+#chart-tooltip {
+  position: absolute;
+  display: none;
+  width: 320px;
+  background: #0c2146;
+  color: white;
+  border-radius: 12px;
+  padding: 16px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  z-index: 1000;
+  transform: translate(-50%, -110%);
+  pointer-events: none;
+}
+
+#chart-tooltip .title {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#chart-tooltip .hotel {
+  text-align: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+#chart-tooltip .price-row {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#chart-tooltip .price-row div {
+  flex: 1;
+}
+
+#chart-tooltip .price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#chart-tooltip .label {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+#chart-tooltip .tab-row {
+  display: flex;
+  background: #183a8c;
+  padding: 6px 0;
+  justify-content: space-around;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+#chart-tooltip .bottom-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+#chart-tooltip .arrow {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #0c2146;
+}
+/* chart css end */
+/* More Insight css end */
+/* Market Trends css start */
+.custom-card {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  /* max-width: 300px; */
+  background: #fff;
+}
+.price-diff {
+  font-size: 1.25rem;
+  color: #d32f2f; /* Red tone for positive difference */
+  font-weight: 600;
+}
+
+.subtext {
+  /* color: #666; */
+  font-size: 0.95rem;
+}
+
+.link-text {
+  color: var(--primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.link-text:hover {
+  text-decoration: underline;
+}
+/* Market Trends css end */
+/* Distribution Health css end */
+.table {
+  --bs-table-striped-bg: #d6d7da !important;
+  margin-bottom: 0 !important;
+}
+.table > :not(caption) > * > * {
+  padding: 0.5rem 1.5rem !important;
+}
+.table > tbody {
+  vertical-align: middle;
+}
+/* Distribution Health css end */
