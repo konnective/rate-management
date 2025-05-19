@@ -51,7 +51,7 @@ new #[Layout('layouts.gu')] class extends Component
                             <input type="email" wire:model="email"  class="form-control" name="email" placeholder="Email address" required />
                              <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
-                        <x-primary-button class="ms-3">
+                        <x-primary-button class="">
                             {{ __('Email Password Reset Link') }}
                         </x-primary-button>
                     </form>

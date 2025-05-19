@@ -73,7 +73,7 @@ new #[Layout('layouts.gu')] class extends Component
                     </a>
                 </div>
                 
-                <x-primary-button class="ms-3">
+                <x-primary-button class="">
                     {{ __('Register') }}
                 </x-primary-button>
             </form>
