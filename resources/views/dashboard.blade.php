@@ -1,4 +1,17 @@
 <x-app-layout>
+<style>
+    table {
+        width: 100%;
+        border-spacing: 35px;
+    }
+    td:first-child {
+        text-align: left; /* Align first column to the left */
+    }
+
+    td:last-child {
+        text-align: right; /* Align second column to the right */
+    }
+</style>
 <div class="container mt-4">
     <!-- more insight section start -->
     <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
@@ -138,10 +151,28 @@
     <div class="custom-card custom-shadow" class="height: 400px"></div>
     <div class="row mt-3 g-3 mb-5">
         <div class="col-lg-4">
-            <div class="card custom-shadow border-0">
+            <div class="card custom-shadow sd border-0">
                 <div class="card-body">
                     <h5 class="card-title"><img src="assets/images/booking.png" alt="" srcset="" class="me-2" /> Booking.com</h5>
-                    <div class="d-flex justify-content-between align-items-center">
+                    <table>
+                        <tr>
+                            <td>Guest Name</td>
+                            <td>Clinton Green</td>
+                        </tr>
+                        <tr>
+                            <td>Confirm #</td>
+                            <td>86147EE040297</td>
+                        </tr>
+                        <tr>
+                            <td>Arrival Date</td>
+                            <td>Apr 24, 2025</td>
+                        </tr>
+                        <tr>
+                            <td>Departure Date</td>
+                            <td>Apr 25, 2025</td>
+                        </tr>
+                    </table>
+                    {{-- <div class="d-flex justify-content-between align-items-center">
                         <div class="d-flex flex-column text-center">
                             <span class="">Ranking</span>
                         </div>
@@ -194,10 +225,11 @@
                             <span class=" ">$ 0</span>
                             <span class="">Avg. loss issue</span>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
+        {{--  --}}
         <div class="col-lg-4">
             <div class="card custom-shadow border-0">
                 <div class="card-body">
