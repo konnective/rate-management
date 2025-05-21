@@ -10,6 +10,7 @@ class GraphSwitcher extends Component
     public function changeGraphType($type)
     {
         $this->graphType = $type;
+        $this->dispatch('refreshGraph', $type);
     }
 
     public function render()

@@ -88,204 +88,179 @@
     <div class="custom-card custom-shadow" class="height: 400px"></div>
     <div class="row mt-3 g-3 mb-5">
         <div class="col-lg-4">
-            <div class="card custom-shadow sd border-0">
+            <div class="card custom-shadow border-0">
                 <div class="card-body">
-                    <h5 class="card-title"><img src="assets/images/booking.png" alt="" srcset="" class="me-2" /> Booking.com</h5>
-                    <table>
-                        <tr>
-                            <td>Guest Name</td>
-                            <td>Clinton Green</td>
-                        </tr>
-                        <tr>
-                            <td>Confirm #</td>
-                            <td>86147EE040297</td>
-                        </tr>
-                        <tr>
-                            <td>Arrival Date</td>
-                            <td>Apr 24, 2025</td>
-                        </tr>
-                        <tr>
-                            <td>Departure Date</td>
-                            <td>Apr 25, 2025</td>
-                        </tr>
+                    <h5 class="card-title">
+                        <img src="assets/images/booking.png" alt="Booking Icon" class="me-2" />
+                        Booking.com
+                    </h5>
+
+                    <table class="table table-borderless mb-0 mt-4">
+                        <tbody>
+                            <tr>
+                                <td>Ranking</td>
+                                <td class="text-primary text-end"><u>See Details</u></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>2</div>
+                                    <small>Out of all 4</small>
+                                </td>
+                                <td class="text-end">
+                                    <div>1st</div>
+                                    <small>Within own compset</small>
+                                </td>
+                            </tr>
+
+                            <tr class="pt-3">
+                                <td>Review score</td>
+                                <td class="text-primary text-end"><u>See Details</u></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>6.9 / 10</div>
+                                    <small>Own hotel</small>
+                                </td>
+                                <td class="text-end">
+                                    <div>2nd</div>
+                                    <small>Within own compset</small>
+                                </td>
+                            </tr>
+
+                            <tr class="pt-3">
+                                <td>Next 90 days parity issues</td>
+                                <td class="text-primary text-end"><u>See Details</u></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>0</div>
+                                    <small>Issues</small>
+                                </td>
+                                <td class="text-end">
+                                    <div>$ 0</div>
+                                    <small>Avg. loss issue</small>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
-                    {{-- <div class="d-flex justify-content-between align-items-center">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">Ranking</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class="text-primary border-bottom">See Details</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">2</span>
-                            <span class="">Out of all 4</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class="">1st</span>
-                            <span class="">Within own compset</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">Review score</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class="text-primary border-bottom">See Details</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">6.9 / 10</span>
-                            <span class="">Own hotel</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class=" ">2nd</span>
-                            <span class="">Within own compset</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">Next 90 days parity issues</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class="text-primary border-bottom">See Details</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">0</span>
-                            <span class="">Issues</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class=" ">$ 0</span>
-                            <span class="">Avg. loss issue</span>
-                        </div>
-                    </div> --}}
-                </div>
-            </div>
-        </div>
-        {{--  --}}
-        <div class="col-lg-4">
-            <div class="card custom-shadow border-0">
-                <div class="card-body">
-                    <h5 class="card-title"><img src="assets/images/booking.png" alt="" srcset="" class="me-2" /> Booking.com</h5>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">Ranking</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class="text-primary border-bottom">See Details</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">2</span>
-                            <span class="">Out of all 4</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class="">1st</span>
-                            <span class="">Within own compset</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">Review score</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class="text-primary border-bottom">See Details</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">6.9 / 10</span>
-                            <span class="">Own hotel</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class=" ">2nd</span>
-                            <span class="">Within own compset</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">Next 90 days parity issues</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class="text-primary border-bottom">See Details</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">0</span>
-                            <span class="">Issues</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class=" ">$ 0</span>
-                            <span class="">Avg. loss issue</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-4">
             <div class="card custom-shadow border-0">
                 <div class="card-body">
-                    <h5 class="card-title"><img src="assets/images/booking.png" alt="" srcset="" class="me-2" /> Booking.com</h5>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">Ranking</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class="text-primary border-bottom">See Details</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">2</span>
-                            <span class="">Out of all 4</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class="">1st</span>
-                            <span class="">Within own compset</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">Review score</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class="text-primary border-bottom">See Details</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">6.9 / 10</span>
-                            <span class="">Own hotel</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class=" ">2nd</span>
-                            <span class="">Within own compset</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">Next 90 days parity issues</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class="text-primary border-bottom">See Details</span>
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center mt-4">
-                        <div class="d-flex flex-column text-center">
-                            <span class="">0</span>
-                            <span class="">Issues</span>
-                        </div>
-                        <div class="d-flex flex-column text-center">
-                            <span class=" ">$ 0</span>
-                            <span class="">Avg. loss issue</span>
-                        </div>
-                    </div>
+                    <h5 class="card-title">
+                        <img src="assets/images/booking.png" alt="Booking Icon" class="me-2" />
+                        Booking.com
+                    </h5>
+
+                    <table class="table table-borderless mb-0 mt-4">
+                        <tbody>
+                            <tr>
+                                <td>Ranking</td>
+                                <td class="text-primary text-end"><u>See Details</u></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>2</div>
+                                    <small>Out of all 4</small>
+                                </td>
+                                <td class="text-end">
+                                    <div>1st</div>
+                                    <small>Within own compset</small>
+                                </td>
+                            </tr>
+
+                            <tr class="pt-3">
+                                <td>Review score</td>
+                                <td class="text-primary text-end"><u>See Details</u></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>6.9 / 10</div>
+                                    <small>Own hotel</small>
+                                </td>
+                                <td class="text-end">
+                                    <div>2nd</div>
+                                    <small>Within own compset</small>
+                                </td>
+                            </tr>
+
+                            <tr class="pt-3">
+                                <td>Next 90 days parity issues</td>
+                                <td class="text-primary text-end"><u>See Details</u></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>0</div>
+                                    <small>Issues</small>
+                                </td>
+                                <td class="text-end">
+                                    <div>$ 0</div>
+                                    <small>Avg. loss issue</small>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card custom-shadow border-0">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <img src="assets/images/booking.png" alt="Booking Icon" class="me-2" />
+                        Booking.com
+                    </h5>
+
+                    <table class="table table-borderless mb-0 mt-4">
+                        <tbody>
+                            <tr>
+                                <td>Ranking</td>
+                                <td class="text-primary text-end"><u>See Details</u></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>2</div>
+                                    <small>Out of all 4</small>
+                                </td>
+                                <td class="text-end">
+                                    <div>1st</div>
+                                    <small>Within own compset</small>
+                                </td>
+                            </tr>
+
+                            <tr class="pt-3">
+                                <td>Review score</td>
+                                <td class="text-primary text-end"><u>See Details</u></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>6.9 / 10</div>
+                                    <small>Own hotel</small>
+                                </td>
+                                <td class="text-end">
+                                    <div>2nd</div>
+                                    <small>Within own compset</small>
+                                </td>
+                            </tr>
+
+                            <tr class="pt-3">
+                                <td>Next 90 days parity issues</td>
+                                <td class="text-primary text-end"><u>See Details</u></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div>0</div>
+                                    <small>Issues</small>
+                                </td>
+                                <td class="text-end">
+                                    <div>$ 0</div>
+                                    <small>Avg. loss issue</small>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
