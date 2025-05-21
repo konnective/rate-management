@@ -81,11 +81,11 @@
             });
 
             // Toggle active menu
-            $(".navbar-middle a").on("click", function (e) {
-                e.preventDefault();
-                $(".navbar-middle a").removeClass("active-link");
-                $(this).addClass("active-link");
-            });
+            // $(".navbar-middle a").on("click", function (e) {
+            //     e.preventDefault();
+            //     $(".navbar-middle a").removeClass("active-link");
+            //     $(this).addClass("active-link");
+            // });
             //chart js start
             $(document).ready(function () {
                 const $tooltip = $("#chart-tooltip");

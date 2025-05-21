@@ -20,70 +20,7 @@
         </h3>
         <span>6th may 2025</span>
     </div>
-    <div class="mt-2 p-4 custom-shadow">
-        <div class="">
-            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="Performance-tab" data-bs-toggle="tab" data-bs-target="#Performance-tab-pane" type="button" role="tab" aria-controls="Performance-tab-pane" aria-selected="true">Performance</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="Rates-tab" data-bs-toggle="tab" data-bs-target="#Rates-tab-pane" type="button" role="tab" aria-controls="Rates-tab-pane" aria-selected="false">Rates</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="Demand-tab" data-bs-toggle="tab" data-bs-target="#Demand-tab-pane" type="button" role="tab" aria-controls="Demand-tab-pane" aria-selected="false">Demand</button>
-                    </li>
-                </ul>
-                <button class="btn btn-primary">Free OTB Data</button>
-            </div>
-
-            <div class="tab-content p-4" id="myTabContent">
-                <div class="tab-pane fade show active" id="Performance-tab-pane" role="tabpanel" aria-labelledby="Performance-tab" tabindex="0">
-                    <!-- <div class="chart-container">
-              <canvas id="performanceChart"></canvas>
-            </div> -->
-                    <div style="position: relative;">
-                        <canvas id="myChart"></canvas>
-                        <div id="chart-tooltip">
-                            <div class="title">May 7, 2025</div>
-                            <div class="hotel">Ramada</div>
-                            <div class="price-row">
-                                <div>
-                                    <div class="price">$120</div>
-                                    <div class="label">Current Price</div>
-                                </div>
-                                <div>
-                                    <div class="price">$120</div>
-                                    <div class="label">Median Comp Rate</div>
-                                </div>
-                                <div>
-                                    <div class="price">4/25</div>
-                                    <div class="label">My Price Position</div>
-                                </div>
-                            </div>
-                            <div class="tab-row">
-                                <div>OTB</div>
-                                <div>Pick-Up</div>
-                            </div>
-                            <div class="bottom-row">
-                                <div>My Hotel</div>
-                                <div style="color: #ff4c4c;">...( )</div>
-                                <div><span style="color: #ff4c4c;">__</span> vs Yesterday</div>
-                            </div>
-                            <div class="arrow"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="Rates-tab-pane" role="tabpanel" aria-labelledby="Rates-tab" tabindex="0">
-                    tab2
-                </div>
-                <div class="tab-pane fade" id="Demand-tab-pane" role="tabpanel" aria-labelledby="Demand-tab" tabindex="0">
-                    tab3
-                </div>
-            </div>
-        </div>
-        <div></div>
-    </div>
+    <livewire:graph-switcher />
     <!-- more insight section end -->
     <!-- market trends section start -->
     <div class="d-flex justify-content-between align-items-center mb-3 mt-5">
