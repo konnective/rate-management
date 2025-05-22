@@ -1,144 +1,105 @@
 <x-app-layout>
  <style>
-    #calendar {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
+        .fc {
+            border: none;
+        }
 
-    .fc-scroller.fc-scroller-liquid-absolute {
-        overflow: hidden !important;
-    }
+        .fc-daygrid-day-frame {
+            padding: 10px;
+        }
 
-    .fc .fc-daygrid-day-number {
-        /* padding: 4px; */
-        position: relative;
-        top: 13px;
-        right: 13px;
-        z-index: 4;
-        background-color: #fff;
-        /* padding: 10px; */
-        height: 30px;
-        width: 30px;
-        border-radius: 30px;
-        text-align: center;
-        color: #4373d0;
-    }
+        /* Hide default weekday header row */
+        .fc-col-header {
+            display: none;
+        }
 
-    .fc table {
-        border-collapse: separate;
-        border-spacing: 11px;
-    }
+        /* Day label inside each cell */
+        .custom-day-label {
+            font-size: 0.75em;
+            color: #888;
+            font-weight: 500;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
 
-    .fc .fc-daygrid-day-frame {
-        background: linear-gradient(207.85deg, rgba(71, 124, 227, 1) 0%, rgba(64, 107, 192, 1) 100%);
-        border-radius: 5px;
-        border-color: #477ce3;
-        border-width: 0px 10px 0px 0px;
-        flex-shrink: 0;
-        height: 20px;
-        position: relative;
-        box-shadow: 0px 4px 10px 0px rgba(167, 210, 255, 0.1), 0px 17px 17px 0px rgba(167, 210, 255, 0.09), 0px 39px 23px 0px rgba(167, 210, 255, 0.05), 0px 70px 28px 0px rgba(167, 210, 255, 0.01), 0px 109px 30px 0px rgba(167, 210, 255, 0);
-    }
+        .fc .fc-daygrid-day-number {
+            padding: 0;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #000000;
+        }
 
-    .fc-theme-standard td,
-    .fc-theme-standard th {
-        border: none;
-    }
+        .fc .fc-daygrid-day-top {
+            flex-direction: column;
+            margin-top: 10%;
+        }
 
-    .fc-theme-standard .fc-scrollgrid {
-        border: none;
-    }
+        .fc .fc-daygrid-event {
+            background: none !important;
+            border: none;
+            padding: 0;
+            
+        }
 
-    .fc-h-event {
-        background-color: transparent;
-        border: none;
-    }
+        .fc .fc-bg-event {
+            opacity: 1 !important;
+        }
 
-    .fc .fc-daygrid-event-harness {
-        bottom: 10px;
-    }
+        /* Custom event background blocks */
+        .event-blue {
+            background-color: #3ea6e33f !important;
+            color: #1c9ae4;
+            border-right: 3px solid #1c9ae4;
+            height: 100%;
+            padding: 5px 6px;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
-    .tooltip-card {
-        background: white;
-        padding: 16px;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        font-family: sans-serif;
-        font-size: 14px;
-        max-width: 700px;
-    }
+        .event-green {
+            background-color: #33ab852f !important;
+            color:#33ab84; 
+            border-right: 3px solid #33ab84;
+            height: 100%;
+            padding: 5px 6px;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
-    .tooltip-header {
-        font-weight: 500;
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 8px;
-    }
+        .event-purple {
+            background-color: #9b5de52f !important;
+            color: #9b5de5;
+            border-right: 3px solid #9b5de5;
+            height: 100%;
+            padding: 5px 6px;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
-    .tooltip-table {
-        width: 100%;
-        border-collapse: collapse;
-    }
+        .fc-event-title {
+            color: inherit !important;
+            margin-top: 50% !important;
+            font-size: 12px;
+            font-weight: 600;
+        }
 
-    .tooltip-table th {
-        text-align: left;
-        font-size: 13px;
-        color: #666;
-        padding-bottom: 6px;
-    }
-
-    .tooltip-table td {
-        padding: 4px 0;
-        font-size: 14px;
-    }
-
-    .dot {
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        background-color: #8a8cf4;
-        border-radius: 50%;
-        margin-right: 6px;
-    }
-
-    .tippy-box {
-        color: #000000 !important;
-    }
-
-    <style > .modal-content.bg-dark {
-        background-color: var(--primary) !important;
-        color: #fff;
-    }
-    .modal-content {
-        background-color: var(--primary) !important;
-    }
-    .modal-header h5 {
-        font-size: 1.25rem;
-    }
-
-    .modal-body {
-        /* min-height: 300px; */
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to bottom, var(--primary), #1c2d5f);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .modal-dialog {
-        max-width: 960px;
-    }
-</style>
+        /* Hide header toolbar */
+        .fc-header-toolbar {
+            display: none;
+        }
+    </style>
 
     <div class="container">
         <div class="py-5">
             <div id="calendar"></div>
         </div>
     </div>
-    
-  <script>
-    console.log('object');
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    {{-- <script src="./assets/js/custom.js"></script> --}}
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script> 
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const calendarEl = document.getElementById('calendar');
 
