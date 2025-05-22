@@ -1,3 +1,4 @@
+@if(request()->getRequestUri() == '/')
 <div id="filterBar" class="filter-bar d-flex align-items-center justify-content-xl-center">
     <button class="btn btn-outline"><i class="bi bi-chevron-left"></i></button>
     <button class="btn btn-outline"><i class="bi bi-chevron-right"></i></button>
@@ -29,3 +30,5 @@
         <a href="#" class="d-block mb-2">Rates</a>
     </div>
 </div>
+@endif
+

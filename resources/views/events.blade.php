@@ -1,215 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
+<x-app-layout>
+ <style>
+    #calendar {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Revenue management</title>
-    <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js'></script>
-    <style>
-        .fc {
-            border: none;
-        }
+    .fc-scroller.fc-scroller-liquid-absolute {
+        overflow: hidden !important;
+    }
 
-        .fc-daygrid-day-frame {
-            padding: 10px;
-        }
+    .fc .fc-daygrid-day-number {
+        /* padding: 4px; */
+        position: relative;
+        top: 13px;
+        right: 13px;
+        z-index: 4;
+        background-color: #fff;
+        /* padding: 10px; */
+        height: 30px;
+        width: 30px;
+        border-radius: 30px;
+        text-align: center;
+        color: #4373d0;
+    }
 
-        /* Hide default weekday header row */
-        .fc-col-header {
-            display: none;
-        }
+    .fc table {
+        border-collapse: separate;
+        border-spacing: 11px;
+    }
 
-        /* Day label inside each cell */
-        .custom-day-label {
-            font-size: 0.75em;
-            color: #888;
-            font-weight: 500;
-            text-transform: uppercase;
-            margin-bottom: 2px;
-        }
+    .fc .fc-daygrid-day-frame {
+        background: linear-gradient(207.85deg, rgba(71, 124, 227, 1) 0%, rgba(64, 107, 192, 1) 100%);
+        border-radius: 5px;
+        border-color: #477ce3;
+        border-width: 0px 10px 0px 0px;
+        flex-shrink: 0;
+        height: 20px;
+        position: relative;
+        box-shadow: 0px 4px 10px 0px rgba(167, 210, 255, 0.1), 0px 17px 17px 0px rgba(167, 210, 255, 0.09), 0px 39px 23px 0px rgba(167, 210, 255, 0.05), 0px 70px 28px 0px rgba(167, 210, 255, 0.01), 0px 109px 30px 0px rgba(167, 210, 255, 0);
+    }
 
-        .fc .fc-daygrid-day-number {
-            padding: 0;
-            font-size: 1.2em;
-            font-weight: 600;
-            color: #000000;
-        }
+    .fc-theme-standard td,
+    .fc-theme-standard th {
+        border: none;
+    }
 
-        .fc .fc-daygrid-day-top {
-            flex-direction: column;
-            margin-top: 10%;
-        }
+    .fc-theme-standard .fc-scrollgrid {
+        border: none;
+    }
 
-        .fc .fc-daygrid-event {
-            background: none !important;
-            border: none;
-            padding: 0;
-            
-        }
+    .fc-h-event {
+        background-color: transparent;
+        border: none;
+    }
 
-        .fc .fc-bg-event {
-            opacity: 1 !important;
-        }
+    .fc .fc-daygrid-event-harness {
+        bottom: 10px;
+    }
 
-        /* Custom event background blocks */
-        .event-blue {
-            background-color: #3ea6e33f !important;
-            color: #1c9ae4;
-            border-right: 3px solid #1c9ae4;
-            height: 100%;
-            padding: 5px 6px;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
+    .tooltip-card {
+        background: white;
+        padding: 16px;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        font-family: sans-serif;
+        font-size: 14px;
+        max-width: 700px;
+    }
 
-        .event-green {
-            background-color: #33ab852f !important;
-            color:#33ab84; 
-            border-right: 3px solid #33ab84;
-            height: 100%;
-            padding: 5px 6px;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
+    .tooltip-header {
+        font-weight: 500;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 8px;
+    }
 
-        .event-purple {
-            background-color: #9b5de52f !important;
-            color: #9b5de5;
-            border-right: 3px solid #9b5de5;
-            height: 100%;
-            padding: 5px 6px;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
+    .tooltip-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
 
-        .fc-event-title {
-            color: inherit !important;
-            margin-top: 50% !important;
-            font-size: 12px;
-            font-weight: 600;
-        }
+    .tooltip-table th {
+        text-align: left;
+        font-size: 13px;
+        color: #666;
+        padding-bottom: 6px;
+    }
 
-        /* Hide header toolbar */
-        .fc-header-toolbar {
-            display: none;
-        }
-    </style>
+    .tooltip-table td {
+        padding: 4px 0;
+        font-size: 14px;
+    }
 
-</head>
+    .dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: #8a8cf4;
+        border-radius: 50%;
+        margin-right: 6px;
+    }
 
-<body>
+    .tippy-box {
+        color: #000000 !important;
+    }
 
-    <header>
-        <!-- Navbar -->
-        <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-custom px-3 pt-4 ">
-            <div class="container d-flex justify-content-between align-items-center">
-                <!-- Left: Logo -->
-                <a class="navbar-brand d-flex align-items-center" href="#">
-                    <img src="./assets/images/logo/logo-dark.png" alt="Logo" class="me-2" width="200">
+    <style > .modal-content.bg-dark {
+        background-color: var(--primary) !important;
+        color: #fff;
+    }
+    .modal-content {
+        background-color: var(--primary) !important;
+    }
+    .modal-header h5 {
+        font-size: 1.25rem;
+    }
 
-                </a>
+    .modal-body {
+        /* min-height: 300px; */
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom, var(--primary), #1c2d5f);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-                <!-- Center Menu (Desktop) -->
-                <div class="navbar-middle d-none d-md-flex gap-4">
-                    <a href="#" class="text-dark text-decoration-none py-3 active-link">Overview</a>
-                    <!-- <a href="#" class="text-dark text-decoration-none py-3">Rates</a> -->
-                    <a href="#" class="text-dark text-decoration-none py-2"><select
-                            class="form-select border-0 shadow-none" aria-label="Default select example">
-                            <option selected><a href="rates.html" class="">Rates</a></option>
-                            <option value="1"><a href="#" class="">Strategy </a></option>
-                            <option value="2"><a href="#" class="">Events </a></option>
-                            <option value="3"><a href="#" class="">Parity</a></option>
-                            <option value="4"><a href="#" class="">Ranking </a></option>
-                        </select></a>
-                </div>
+    .modal-dialog {
+        max-width: 960px;
+    }
+</style>
 
-                <!-- Right Buttons + Sidebar Toggle -->
-                <div class="d-flex gap-2 align-items-center">
-
-
-                    <!-- Icon Buttons -->
-                    <button class="nav-icon-btn"><i class="bi bi-person-circle"></i></button>
-                    <button class="nav-icon-btn"><i class="bi bi-gear-fill"></i></button>
-                    <!-- Toggle Sidebar on Mobile -->
-                    <button class="nav-icon-btn d-md-none " type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#mobileMenu">
-                        <i class="bi bi-list "></i>
-                    </button>
-                </div>
-            </div>
-        </nav>
-
-        <div id="navPlaceholder" class="placeholder d-none"></div>
-
-        <!-- Filter Bar -->
-        <div id="filterBar" class="filter-bar border-bottom ">
-            <div class="container">
-                <div class="d-flex align-items-center  justify-content-between">
-                    <div><button class="btn btn-outline"><i class="bi bi-chevron-left"></i></button>
-                        <button class="btn btn-outline"><i class="bi bi-chevron-right"></i></button>
-                        <button class="btn btn-outline">May 9, 2025 <i class="bi bi-calendar-plus ms-2"></i></button>
-                    </div>
-                    <div class="d-flex align-items-center  justify-content-between gap-3 border p-2">
-
-                        <a href="#"><i class="bi bi-file-earmark-arrow-down text-dark fs-3"></i></a>
-                        <a href="#"><i class="bi bi-plus-circle text-dark fs-3"></i></a>
-
-                    </div>
-                </div>
-                <div class="d-flex align-items-center  justify-content-between mt-3">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="dropdown">
-                            <button class="btn btn-outline dropdown-toggle" data-bs-toggle="dropdown">All
-                                Categories</button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Primary Compete</a></li>
-                                <li><a class="dropdown-item" href="#">Secondary Compete</a></li>
-                            </ul>
-                        </div>
-                        <div class="dropdown">
-                            <button class="btn btn-outline dropdown-toggle" data-bs-toggle="dropdown">All
-                                Events</button>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Primary Compete</a></li>
-                                <li><a class="dropdown-item" href="#">Secondary Compete</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-outline"><i class="bi bi-search me-2 "></i> Search </button>
-
-                </div>
-            </div>
-
-
-
+    <div class="container">
+        <div class="py-5">
+            <div id="calendar"></div>
         </div>
-        <div class="container">
-            <div class="py-5">
-                <div id="calendar"></div>
-            </div>
-        </div>
-
-
-    </header>
-
-    <!-- Scripts -->
-
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    {{-- <script src="./assets/js/custom.js"></script> --}}
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
-
-    <script>
+    </div>
+    
+  <script>
+    console.log('object');
         document.addEventListener('DOMContentLoaded', function() {
             const calendarEl = document.getElementById('calendar');
 
@@ -257,6 +186,4 @@
             calendar.render();
         });
     </script>
-
-
-</html>
+</x-app-layout>
