@@ -70,7 +70,7 @@
             $(window).on("scroll", function () {
                 if ($(this).scrollTop() > 100) {
                     $("#mainNavbar").addClass("sticky-nav");
-                    $("#filterBar").addClass("sticky-filter");
+                    // $("#filterBar").addClass("sticky-filter");
                     $("#navPlaceholder").removeClass("d-none");
                     $("#filterPlaceholder").removeClass("d-none");
                 } else {
