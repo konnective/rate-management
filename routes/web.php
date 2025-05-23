@@ -20,4 +20,12 @@ Route::view('events', 'events')
     ->middleware(['auth'])
     ->name('events');
 
+Route::view('parity', 'parity')
+    ->middleware(['auth'])
+    ->name('parity');
+
+Route::view('ranking', 'ranking')
+    ->middleware(['auth'])
+    ->name('ranking');
+
 require __DIR__.'/auth.php';
