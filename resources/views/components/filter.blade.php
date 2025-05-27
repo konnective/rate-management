@@ -103,62 +103,6 @@
         </div>
     </div>
 </div>
-@elseif (request()->getRequestUri() == '/parity')
- <div id="filterBar" class="filter-bar border-bottom">
-    <div class="container">
-        <div class="d-flex align-items-center justify-content-between">
-            <div>
-                <button class="btn btn-outline"><i class="bi bi-chevron-left"></i></button>
-                <button class="btn btn-outline"><i class="bi bi-chevron-right"></i></button>
-                <button class="btn btn-outline">May 9, 2025 <i class="bi bi-calendar-plus ms-2"></i></button>
-            </div>
-            <div class="d-flex align-items-center justify-content-between gap-3 border p-2">
-                <a href="#"><i class="bi bi-journal-text text-dark fs-3"></i></a>
-                <a href="#"><i class="bi bi-graph-down text-dark fs-3"></i></a>
-                <a href="#"><i class="bi bi-file-spreadsheet text-dark fs-3"></i></a>
-                <a href="#"><i class="bi bi-file-earmark-arrow-down text-dark fs-3"></i></a>
-                <a href="#"><i class="bi bi-arrow-clockwise text-dark fs-3"></i></a>
-            </div>
-        </div>
-        <div class="d-flex align-items-center mt-3">
-            <button class="btn btn-outline"><i class="bi bi-tags me-2"></i> Lowest</button>
-            <button class="btn btn-outline"><i class="bi bi-sliders2-vertical me-2"></i> Channels</button>
-            <button class="btn btn-outline">1 Night</button>
-            <button class="btn btn-outline">2 Guest</button>
-            <button class="btn btn-outline">Any Room</button>
-            <button class="btn btn-outline">Any Meal</button>
-        </div>
-    </div>
-</div>
-@elseif (request()->getRequestUri() == '/ranking')
-<div id="filterBar" class="filter-bar border-bottom">
-    <div class="container">
-        <div class="d-flex align-items-center justify-content-center mt-3">
-            <div class="dropdown">
-                <button class="btn btn-outline dropdown-toggle" data-bs-toggle="dropdown">Booking.com</button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Primary Compete</a></li>
-                    <li><a class="dropdown-item" href="#">Secondary Compete</a></li>
-                </ul>
-            </div>
-            <div class="dropdown">
-                <button class="btn btn-outline dropdown-toggle" data-bs-toggle="dropdown">Monthly Change</button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Primary Compete</a></li>
-                    <li><a class="dropdown-item" href="#">Secondary Compete</a></li>
-                </ul>
-            </div>
-            <div class="dropdown">
-                <button class="btn btn-outline dropdown-toggle" data-bs-toggle="dropdown">Primary Compset</button>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Primary Compete</a></li>
-                    <li><a class="dropdown-item" href="#">Secondary Compete</a></li>
-                </ul>
-            </div>
-            <span>1 Night</span>
-        </div>
-    </div>
-</div>
 
 @endif
 

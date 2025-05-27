@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Http\Livewire;
+
 use Livewire\Component;
 
 class GraphSwitcher extends Component
 {
-    public $graphType = 'bar'; // Default graph type
+    public string $chartType = 'bar';
 
-    public function changeGraphType($type)
+    public function setChartType(string $type)
     {
-        $this->graphType = $type;
-        $this->dispatch('refreshGraph', $type);
+        $this->chartType = $type;
+        $this->dispatchBrowserEvent('update-chart', ['type' => $type]);
     }
 
     public function render()

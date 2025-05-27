@@ -31,16 +31,18 @@ new class extends Component
 
                 <!-- Center Menu (Desktop) -->
                 <div class="navbar-middle d-none d-md-flex gap-4">
-                    <a href="#" class="text-dark text-decoration-none py-3 active-link">Overview</a>
+                    <a href="{{route('dashboard')}}" class="text-dark text-decoration-none py-3 {{ Route::is('dashboard') ? 'active-link' : '' }}">Overview</a>
                     <!-- <a href="#" class="text-dark text-decoration-none py-3">Rates</a> -->
-                    <a href="#" class="text-dark text-decoration-none py-2"><select
-                            class="form-select border-0 shadow-none" aria-label="Default select example">
-                            <option selected><a href="rates.html" class="">Rates</a></option>
-                            <option value="1"><a href="#" class="">Strategy </a></option>
-                            <option value="2"><a href="#" class="">Events </a></option>
-                            <option value="3"><a href="#" class="">Parity</a></option>
-                            <option value="4"><a href="#" class="">Ranking </a></option>
-                        </select></a>
+                        <a class="text-dark text-decoration-none py-3">
+                            <select class="form-select border-0 shadow-none" onchange="window.location.href=this.value;">
+                                <option value="">Select a page</option>
+                                <option value="/rates">Rates</option>
+                                <option value="#">Strategy</option>
+                                <option value="/events">Events</option>
+                                <option value="/parity">Parity</option>
+                                <option value="/rankings">Ranking</option>
+                            </select>
+                        </a>
                 </div>
 
                 <!-- Right Buttons + Sidebar Toggle -->
