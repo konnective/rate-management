@@ -104,8 +104,8 @@ new class extends Component
             @endif
         </div>
 
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+        <div class="flex items-center gap-4 mt-3">
+            <x-form-button>{{ __('Save') }}</x-form-button>
 
             <x-action-message class="me-3" on="profile-updated">
                 {{ __('Saved.') }}
