@@ -8,31 +8,24 @@ use Livewire\Volt\Component;
 
 new class extends Component
 {
-    public string $current_password = '';
-    public string $password = '';
-    public string $password_confirmation = '';
+    public string $latitude = '';
+    public string $longitude = '';
 
     /**
      * Update the password for the currently authenticated user.
      */
-      public function updateProfileInformation(): void
+    public function updateCoordinates(): void
     {
         $user = Auth::user();
-
         $validated = $this->validate([
             'latitude' => ['required', 'string', 'max:255'],
             'longitude' => ['required', 'string', 'max:255'],
         ]);
-
+        
         $user->fill($validated);
 
-        // if ($user->isDirty('email')) {
-        //     $user->email_verified_at = null;
-        // }
-
         $user->save();
-
-        $this->dispatch('coordinates-updated', name: $user->name);
+        $this->dispatch('coordinates-updated', name: $user->latitude);
     }
 }; ?>
 
@@ -43,16 +36,16 @@ new class extends Component
         </h2>
     </header>
 
-   <form>
+   <form wire:submit="updateCoordinates">
         <div class="form-group">
-            <x-input-label for="update_latitude" :value="__('Latitude')" />
-            <x-text-input wire:model="latitude" id="update_latitude" name="latitude" type="text" class="mt-1 block w-full" autocomplete="current-password" />
-            <x-input-error :messages="$errors->get('latitude')" class="mt-2" />
+            <x-input-label for="latitude" :value="__('Latitude')" />
+            <x-text-input wire:model="latitude" id="latitude" name="latitude" type="text" class="mt-1 block w-full" required autocomplete="latitude" />
+            <x-input-error class="mt-2" :messages="$errors->get('latitude')" />
         </div>
         <div class="form-group">
-            <x-input-label for="update_logitude" :value="__('Longitude')" />
-            <x-text-input wire:model="longitude" id="update_logitude" name="longitude" type="text" class="mt-1 block w-full" autocomplete="current-password" />
-            <x-input-error :messages="$errors->get('longitude')" class="mt-2" />
+           <x-input-label for="longitude" :value="__('Longitude')" />
+            <x-text-input wire:model="longitude" id="longitude" name="longitude" type="text" class="mt-1 block w-full" required autocomplete="longitude" />
+            <x-input-error class="mt-2" :messages="$errors->get('longitude')" />
         </div>
         <div class="flex items-center mt-3">
             <x-form-button>{{ __('Save') }}</x-form-button>
