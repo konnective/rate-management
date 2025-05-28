@@ -349,6 +349,7 @@
                                 // API call was successful
                                 console.log('API call successful:', response);
                                 resolve(response);
+                                return response
                             },
                             error: function(xhr, status, error) {
                                 // API call failed
@@ -362,39 +363,41 @@
                         });
                     });
                 }
-                makeApiCall(url, 'GET')
+                const res = makeApiCall(url, 'GET');
+                console.log(res);
                 const $tooltip = $("#chart-tooltip");
                 new Chart($("#myChart")[0].getContext("2d"), {
                     type: "line",
-                    data: {
-                        labels: ["1 May", "2 May", "3 May", "4 May", "5 May", "6 May", "7 May", "8 May", "9 May"],
-                        datasets: [
-                            {
-                                label: "Line A",
-                                data: [7, 8, 8, 9, 9, 9, 10, 11, 14],
-                                borderColor: "#153F92",
-                                pointBackgroundColor: "#ffffff",
-                                pointBorderColor: "#153F92",
-                                pointBorderWidth: 2,
-                                pointRadius: 4,
-                                pointHoverRadius: 6,
-                                fill: false,
-                                tension: 0,
-                            },
-                            {
-                              label: 'Line B',
-                              data: [14,11,9,6,8,7,6,5,4],
-                              borderColor: "#153F92",
-                              pointBackgroundColor: "#ffffff",
-                              pointBorderColor: "#153F92",
-                              pointBorderWidth: 2,
-                              pointRadius: 4,
-                              pointHoverRadius: 6,
-                              fill: false,
-                              tension: 0,
-                            },
-                        ],
-                    },
+                    data:res.data,
+                    // data: {
+                    //     labels: ["1 May", "2 May", "3 May", "4 May", "5 May", "6 May", "7 May", "8 May", "9 May"],
+                    //     datasets: [
+                    //         {
+                    //             label: "Line A",
+                    //             data: [7, 8, 8, 9, 9, 9, 10, 11, 14],
+                    //             borderColor: "#153F92",
+                    //             pointBackgroundColor: "#ffffff",
+                    //             pointBorderColor: "#153F92",
+                    //             pointBorderWidth: 2,
+                    //             pointRadius: 4,
+                    //             pointHoverRadius: 6,
+                    //             fill: false,
+                    //             tension: 0,
+                    //         },
+                    //         {
+                    //           label: 'Line B',
+                    //           data: [14,11,9,6,8,7,6,5,4],
+                    //           borderColor: "#153F92",
+                    //           pointBackgroundColor: "#ffffff",
+                    //           pointBorderColor: "#153F92",
+                    //           pointBorderWidth: 2,
+                    //           pointRadius: 4,
+                    //           pointHoverRadius: 6,
+                    //           fill: false,
+                    //           tension: 0,
+                    //         },
+                    //     ],
+                    // },
                     options: {
                         interaction: {
                             mode: "nearest",
