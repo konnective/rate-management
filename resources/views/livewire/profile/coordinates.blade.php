@@ -15,26 +15,24 @@ new class extends Component
     /**
      * Update the password for the currently authenticated user.
      */
-    public function updatePassword(): void
+      public function updateProfileInformation(): void
     {
-        try {
-            $validated = $this->validate([
-                'current_password' => ['required', 'string', 'current_password'],
-                'password' => ['required', 'string', Password::defaults(), 'confirmed'],
-            ]);
-        } catch (ValidationException $e) {
-            $this->reset('current_password', 'password', 'password_confirmation');
+        $user = Auth::user();
 
-            throw $e;
-        }
-
-        Auth::user()->update([
-            'password' => Hash::make($validated['password']),
+        $validated = $this->validate([
+            'latitude' => ['required', 'string', 'max:255'],
+            'longitude' => ['required', 'string', 'max:255'],
         ]);
 
-        $this->reset('current_password', 'password', 'password_confirmation');
+        $user->fill($validated);
 
-        $this->dispatch('password-updated');
+        // if ($user->isDirty('email')) {
+        //     $user->email_verified_at = null;
+        // }
+
+        $user->save();
+
+        $this->dispatch('coordinates-updated', name: $user->name);
     }
 }; ?>
 
@@ -47,18 +45,19 @@ new class extends Component
 
    <form>
         <div class="form-group">
-            <x-input-label for="update_password_current_password" :value="__('Current Password')" />
-            <x-text-input wire:model="current_password" id="update_password_current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
-            <x-input-error :messages="$errors->get('current_password')" class="mt-2" />
+            <x-input-label for="update_latitude" :value="__('Latitude')" />
+            <x-text-input wire:model="latitude" id="update_latitude" name="latitude" type="text" class="mt-1 block w-full" autocomplete="current-password" />
+            <x-input-error :messages="$errors->get('latitude')" class="mt-2" />
         </div>
         <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <x-input-label for="update_logitude" :value="__('Longitude')" />
+            <x-text-input wire:model="longitude" id="update_logitude" name="longitude" type="text" class="mt-1 block w-full" autocomplete="current-password" />
+            <x-input-error :messages="$errors->get('longitude')" class="mt-2" />
         </div>
         <div class="flex items-center mt-3">
             <x-form-button>{{ __('Save') }}</x-form-button>
 
-            <x-action-message class="me-3" on="password-updated">
+            <x-action-message class="me-3" on="coordinates-updated">
                 {{ __('Saved.') }}
             </x-action-message>
         </div>
